@@ -1,54 +1,23 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
-class HelloWorld extends React.Component {
+import tasks from './sample/tasks.json';
 
-state = {
-  show: true
-}
+import Tasks from './components/Tasks';
 
-toggleShow = () => {
-  this.setState({show: !this.state.show});
-}
+class App extends Component {
 
-
+   state = {
+     tasks: tasks
+   } 
   render() {
-    if(this.state.show){
-      return (
-        <div id="Hello">
-        <h3>{this.props.language}</h3>
-        {this.props.mytext}
-        <button onClick={this.toggleShow}>Toggle Show</button>
-        </div>
-        )
-    } else {
-      return <h1>THERE ARE NO ELEMENTS!
-      <button onClick={this.toggleShow}>
-        Toggle Show
-      </button>
-      </h1>
-    }
+    return <div>
+      {/* le paso las tareas que tengo en state a este componente */}
+        <Tasks tasks={this.state.tasks} /> 
 
- 
+    </div>
+    
   }
-}
-
-// const App = () => <div>This is my component: <HelloWorld></HelloWorld> </div>
-
-// class App extends React.Component {
-//   render() {
-//     return <div>This is my component <HelloWorld></HelloWorld></div>
-//   }
-// }
-
-function App() {
-  return (
-   <div>This is my component: 
-     <HelloWorld mytext="Hello Dacta" language="english"></HelloWorld>
-      <HelloWorld mytext="Konichiwa Dacta">
-       </HelloWorld> <HelloWorld mytext="Oui Dacta"></HelloWorld>  
-       </div>
-  );
 }
 
 export default App;
