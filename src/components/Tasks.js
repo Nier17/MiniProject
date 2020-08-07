@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
 
 import Task from './Task';
 
@@ -10,4 +11,14 @@ class Tasks extends Component {
     }
 }
 
+Tasks.propTypes = {
+    tasks: PropTypes.array.isRequired
+}
+
+const obj = {
+    "id": 0,
+        "title": "task vv",
+        "description": "lorem ipsum 1",
+        "done": false
+}
 export default Tasks;
